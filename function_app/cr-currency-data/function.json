@@ -1,0 +1,29 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "name": "datainput",
+      "type": "table",
+      "tableName": "banksdata",
+      "partitionKey": "pythonentry",
+      "filter": "(Timestamp ge datetime'{begin}' and Timestamp le datetime'{end}')",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    }
+  ]
+}

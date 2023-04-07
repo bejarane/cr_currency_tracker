@@ -1,0 +1,19 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "mytimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 0 */12 * * *"
+    },
+    {
+      "name": "dataoutput",
+      "type": "table",
+      "tableName": "banksdata",
+      "partitionKey": "pythonentry",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
+    }
+  ]
+}
